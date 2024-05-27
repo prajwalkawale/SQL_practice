@@ -1,0 +1,43 @@
+CREATE DATABASE college03;
+USE college03;
+
+CREATE TABLE dept(
+id INT PRIMARY KEY,
+dept_name VARCHAR(50)
+);
+
+INSERT INTO dept 
+VALUES
+(101,"SCIENCE"),
+(102,"MATHEMATICS"),
+(111,"ENGLISH");
+SELECT *FROM dept;
+UPDATE dept 
+SET id = 555
+WHERE id = 102;
+CREATE TABLE teacher(
+id INT PRIMARY KEY,
+name_teacher VARCHAR(50),
+dept_id INT,
+FOREIGN KEY(dept_id) REFERENCES dept(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+);
+
+INSERT INTO teacher
+VALUES
+(1,"Santosh",111),
+(2,"Dilip",101),
+(3,"Ajay",102);
+
+SELECT *FROM teacher;
+
+ALTER TABLE teacher 
+ADD COLUMN age INT;
+
+ALTER TABLE teacher
+DROP COLUMN age;
+
+ALTER TABLE teacher
+ADD COLUMN age INT NOT NULL DEFAULT 19;
+

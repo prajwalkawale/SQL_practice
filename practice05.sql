@@ -1,0 +1,38 @@
+CREATE DATABASE company;
+USE company;
+
+CREATE TABLE employees(
+id INT PRIMARY KEY,
+name VARCHAR(50),
+city VARCHAR(10)
+);
+
+INSERT INTO employees
+VALUES
+(101,"CLAY","NEW YORK"),
+(102,"MAX","CHICAGO"),
+(103,"CHARLIE","SEATTLE");
+
+CREATE TABLE salary(
+id INT PRIMARY KEY,
+age INT NOT NULL,
+salary INT NOT NULL DEFAULT 25000
+);
+
+INSERT INTO salary
+VALUES
+(101,25,2000),
+(103,26,25000),
+(102,24,350);
+
+SELECT *FROM employees;
+SELECT *FROM salary;
+
+SELECT *
+FROM employees as e
+INNER JOIN salary as s
+ON e.id = s.id;
+
+
+
+
